@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Form gallery - jQuery Mobile Demos</title>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.3.min.css">
+    <link rel="stylesheet" href="css/jqm-demos.css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.mobile-1.4.3.min.js"></script>
+	<script src="js/raphael-min.js"></script>
+	 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+// The watch id references the current `watchAcceleration`
+    var watchID = null;
+	var paper = null;
+	var w = 20;
+	var h = 20;
+	var c = null;
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+	
+    // device APIs are available
+    //
+    function onDeviceReady() {
+		console.log("enter onDeviceReady");
+		try {
+			var paper = Raphael("background");
+			paper.setViewBox(0, 0, 100, 100, true);
+			paper.canvas.setAttribute('preserveAspectRatio', 'none');
+			c = paper.circle(0,0,5);
+			startWatch();
+		} catch (err){
+			console.log(err.message);
+		}
+    }
+
+    // Start watching the acceleration
+    //
+    function startWatch() {
+
+        // Update acceleration every 3 seconds
+        var options = { frequency: 100 };
+        watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
+    }
+
+    // Stop watching the acceleration
+    //
+    function stopWatch() {
+        if (watchID) {
+            navigator.accelerometer.clearWatch(watchID);
+            watchID = null;
+        }
+    }
+
+    // onSuccess: Get a snapshot of the current acceleration
+    //
+    function onSuccess(acceleration) {
+		try {
+			$('#x_axis').val(acceleration.x).slider("refresh");
+			$('#y_axis').val(acceleration.y).slider("refresh");
+			$('#z_axis').val(acceleration.z).slider("refresh");
+			c.animate({cx: acceleration.x * 5 +50, cy : acceleration.y * -5 + 50},100, "linear", null);
+		} catch (err){
+			console.log(err.message);
+		}
+		
+    }
+
+    // onError: Failed to get the acceleration
+    //
+    function onError() {
+    }
+
+    </script>
+</head>
+<body>
+<div data-role="page" class="jqm-demos">
+	<div role="main" class="ui-content jqm-content">
+
+    	<h1>Acceleration Test</h1>
+
+        <form action="#" method="get">
+            <div data-demo-html="true">
+                <input type="range" name="x_axis" id="x_axis" value="0" min="-20" max="20" step="0.5" data-highlight="true">
+            </div><!--/demo-html -->
+			
+            <div data-demo-html="true">
+                <input type="range" name="y_axis" id="y_axis" value="0" min="-20" max="20" step="0.5"data-highlight="true">
+            </div><!--/demo-html -->
+            <div data-demo-html="true">
+                <input type="range" name="z_axis" id="z_axis" value="0" min="-20" max="20" step="0.5" data-highlight="true">
+            </div><!--/demo-html -->
+		<div id="background" />
+		</div>
+        </form>
+
+</div><!-- /page -->
+
+</body>
+</html>
