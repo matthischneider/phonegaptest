@@ -29,7 +29,7 @@
 	left: 1em;
 	margin: 0;
 	color: #666;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	text-transform: uppercase;
 }
@@ -58,7 +58,7 @@
 .jqm-demos .jqm-footer p {
 	font-size: .8em;
 	color: #999;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	margin: 0 1.25em 1.25em;
 }
@@ -79,7 +79,7 @@
 .jqm-demos .jqm-content > p,
 .jqm-demos .jqm-content > ul li,
 .jqm-demos .jqm-content > a {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 }
 .jqm-demos .jqm-content > h1 {
@@ -148,7 +148,7 @@
 	border: 1px solid #eee;
 	-webkit-border-radius: .3125em;
 	border-radius: .3125em;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 .jqm-block-content h3 {
 	font-size: 1.5em;
@@ -197,7 +197,7 @@
 .jqm-demos .jqm-list .ui-btn,
 .jqm-demos .jqm-list .ui-btn:visited,
 .jqm-demos .jqm-list .ui-li-divider {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	text-shadow: none !important;
 }
@@ -308,7 +308,7 @@
 .jqm-demos .jqm-content .jqm-view-source-link:hover,
 .jqm-demos .jqm-content .jqm-view-source-link:active {
 	color: #3eb249;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 	margin: 2em 0 1.5em 1em;
 }
@@ -442,7 +442,7 @@
 	margin: 0;
 }
 .jqm-view-source .ui-collapsible-heading .ui-btn {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 }
 .jqm-view-source .ui-collapsible-heading .ui-btn-inner {
